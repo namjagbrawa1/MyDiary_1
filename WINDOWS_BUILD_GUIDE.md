@@ -1,6 +1,8 @@
 # Windows 构建指南
 
-## 问题解决
+## 常见问题解决
+
+### 1. 资源目录错误
 
 如果您在Windows上运行 `flutter run -d windows` 时遇到以下错误：
 
@@ -11,6 +13,18 @@ CUSTOMBUILD : error : unable to find directory entry in pubspec.yaml: assets\the
 ```
 
 这是因为 `pubspec.yaml` 文件中引用了空的资源目录。Flutter 不允许引用空的资源目录。
+
+### 2. 数据库初始化错误
+
+如果您遇到以下错误：
+
+```
+Failed to initialize app: Bad state: databaseFactory not initialized
+databaseFactory is only initialized when using sqflite. When using sqflite common ffi
+You must call `databaseFactory = databaseFactoryffi; before using global openDatabase API
+```
+
+这是因为桌面平台需要额外的数据库初始化。我们已经在代码中修复了这个问题。
 
 ## 解决方案
 
