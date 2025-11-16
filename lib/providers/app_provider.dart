@@ -111,7 +111,7 @@ class AppProvider with ChangeNotifier {
             count = await _databaseHelper.getContactCountByTopicId(_topics[i].id!);
             break;
         }
-        _topics[i] = _topics[i].copyWith(count: count);
+        _topics[i].count = count;
       }
       
       notifyListeners();

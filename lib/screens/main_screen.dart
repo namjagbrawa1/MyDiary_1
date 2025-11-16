@@ -37,20 +37,8 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void _onSearchChanged() {
-    final appProvider = Provider.of<AppProvider>(context, listen: false);
-    final query = _searchController.text.toLowerCase();
-    
-    setState(() {
-      if (query.isEmpty) {
-        _filteredTopics = appProvider.topics;
-      } else {
-        _filteredTopics = appProvider.topics
-            .where((topic) =>
-                topic.name.toLowerCase().contains(query) ||
-                (topic.subtitle?.toLowerCase().contains(query) ?? false))
-            .toList();
-      }
-    });
+    // Just trigger a rebuild, filtering is now handled in build method
+    setState(() {});
   }
 
   void _onTopicTap(Topic topic) {
@@ -95,8 +83,17 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: Consumer<AppProvider>(
         builder: (context, appProvider, child) {
-          if (_filteredTopics.isEmpty && _searchController.text.isEmpty) {
+          // Always update filtered topics when search is empty
+          if (_searchController.text.isEmpty) {
             _filteredTopics = appProvider.topics;
+          } else {
+            // Re-apply search filter when topics change
+            final query = _searchController.text.toLowerCase();
+            _filteredTopics = appProvider.topics
+                .where((topic) =>
+                    topic.name.toLowerCase().contains(query) ||
+                    (topic.subtitle?.toLowerCase().contains(query) ?? false))
+                .toList();
           }
 
           return Container(
