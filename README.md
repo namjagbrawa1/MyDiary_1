@@ -1,159 +1,182 @@
-#  MyDiary
+# MyDiary Flutter
 
-## Summary
+A beautiful cross-platform diary application inspired by the movie "Your Name" (君の名は). This Flutter version supports iOS, Android, Windows, Linux, and macOS.
 
-I like Makoto Shinkai's (新海 誠) movies very much! This project is just trying to create the app - "My Diary" in "your name." on Android. In this movie, "My Diary" is an important app between Taki(瀧) and Mitsuha(三葉). As a fan, I think maybe I can implement this app. If you also like "your name.", please join me to finish the "My Diary", and let it become real.
+## Features
 
-This project will need :
-* Android developer
-* GUI designer
-* Japanese/English translation 
+### 🎨 Beautiful UI
+- **Taki & Mitsuha Themes**: Switch between two beautiful themes inspired by the main characters
+- **Gradient Backgrounds**: Stunning gradient backgrounds that match the movie's aesthetic
+- **Smooth Animations**: Fluid transitions and animations throughout the app
 
-This project has be re-created in 2016-11-04 because there were some personal infos in the old git repository.
+### 📖 Diary Management
+- **Rich Text Entries**: Write detailed diary entries with multiple text blocks
+- **Photo Support**: Add photos to your diary entries
+- **Mood & Weather Tracking**: Record your mood and weather for each entry
+- **Location Services**: Automatically capture or manually enter locations
+- **Date & Time Selection**: Flexible date and time picker for entries
 
-So if you have already starred or forked the repo, you can do it again, thanks :)
+### 📝 Memo System
+- **Todo Lists**: Create and manage todo lists with checkboxes
+- **Multiple Topics**: Organize memos into different topics
+- **Drag & Drop**: Reorder memo items easily
 
-## Why is there only the Android version?
+### 👥 Contacts Management
+- **Contact Profiles**: Store contact information with photos
+- **Phone Numbers**: Save and manage phone numbers
+- **Topic Organization**: Group contacts by topics
 
-In fact, Android version is more difficult than iOS, because this app is running on iOS in the movie. But I will only create the Android version for now because:
+### 🎯 Topic System
+- **Custom Topics**: Create custom topics for different categories
+- **Color Coding**: Assign unique colors to each topic
+- **Type Support**: Support for Diary, Memo, and Contact topics
+- **Count Tracking**: Automatic counting of items in each topic
 
-1. I don't have a mac for now :P
-2. Android apks are easy to release.
+### 🔧 Advanced Features
+- **Search Functionality**: Search across all your content
+- **Profile Management**: Customize your profile with photo and name
+- **Theme Switching**: Easy switching between Taki and Mitsuha themes
+- **Data Persistence**: Local SQLite database for reliable data storage
+- **Cross-Platform**: Works on iOS, Android, Windows, Linux, and macOS
 
-So, maybe I will try to create an iOS version after this app is running.
+## Installation
 
+### Prerequisites
+- Flutter SDK (3.5.4 or higher)
+- Dart SDK
+- Platform-specific development tools:
+  - **Android**: Android Studio with Android SDK
+  - **iOS**: Xcode (macOS only)
+  - **Windows**: Visual Studio with C++ tools
+  - **Linux**: Linux development libraries
+  - **macOS**: Xcode
 
-## Functionality
+### Getting Started
 
- **Working:**
-* Add topic
-* Delete topic
-* Show diary list
-* Add diary
-* Delete diary
-* Change date in calendar page (page curl effect not ready)
-* Add mood in diary
-* Add weather in diary
-* Add location in diary
-* Basic theme
-* Allow edit diary
-* Add memo
-* Support JP
-* Create contacts
-* Optimized diary page viewer 
-* Add photo in diary
-* Allow changing diary time
-* Main Setting page
-* More themes, More profiles
-* Add profile picture
-* Add password
-* Allow order for topic, memo
-* page curl effect
-* import & export DB(Alpha) (flow finish) 
-* Search function
-* OOBE
-* Save diary automatically
-* Photo overview
-**To do:**
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/mydiary_flutter.git
+   cd mydiary_flutter
+   ```
 
-This is the list of functionality I will implement, ordered by priority.
+2. **Install dependencies**
+   ```bash
+   flutter pub get
+   ```
 
-1. Modfiy location
-2. Code refactoring
-3. Diary widget
-4. Google account backup & including FireBase
-5. UI review & support xxxHpdi \
-6. Implement contacts search
-7. Support Chinese sort
-8. Modify contacts detail (beta)
-9. Music
-10. web block
-11. Tags
-12. load contacts from phone
-13. Add bookmark for diary
-14. Add music in diary
-15. Support Chinese sort
-16. Support JP sort
+3. **Run the app**
+   ```bash
+   # For Android
+   flutter run -d android
+   
+   # For iOS (macOS only)
+   flutter run -d ios
+   
+   # For Windows
+   flutter run -d windows
+   
+   # For Linux
+   flutter run -d linux
+   
+   # For macOS
+   flutter run -d macos
+   
+   # For web
+   flutter run -d web
+   ```
 
-Coding & Designing:
+### Building for Release
 
-1. Add mistake-proofing
+#### Android APK
+```bash
+flutter build apk --release
+```
 
-**pending**
+#### iOS App (macOS only)
+```bash
+flutter build ios --release
+```
 
-1. Add web block in diary ( some memory issue)
+#### Windows Executable
+```bash
+flutter build windows --release
+```
 
+#### Linux Executable
+```bash
+flutter build linux --release
+```
 
-**Translation**
+#### macOS App
+```bash
+flutter build macos --release
+```
 
-Thanks for someone help me to translate this app.
-Now the language percentage is:
+## Project Structure
 
-* English - 100 %
-* 日本語  - 80%
-* 繁體中文 - 100%
-* 简体中文 - 100%
-* 한국어 - 80%
-* ภาษาไทย  - 99%
-* Français  - 99%
-* Español  - 80%
+```
+lib/
+├── main.dart                 # App entry point
+├── models/                   # Data models
+│   ├── topic.dart
+│   ├── diary_entry.dart
+│   ├── diary_item.dart
+│   ├── memo.dart
+│   └── contact.dart
+├── database/                 # Database management
+│   └── database_helper.dart
+├── providers/                # State management
+│   └── app_provider.dart
+├── screens/                  # UI screens
+│   ├── splash_screen.dart
+│   ├── main_screen.dart
+│   ├── diary_screen.dart
+│   ├── diary_edit_screen.dart
+│   ├── memo_screen.dart
+│   ├── contacts_screen.dart
+│   ├── contact_edit_screen.dart
+│   └── settings_screen.dart
+├── widgets/                  # Reusable widgets
+│   ├── profile_header.dart
+│   ├── topic_card.dart
+│   └── add_topic_dialog.dart
+├── utils/                    # Utilities
+│   └── theme_manager.dart
+└── l10n/                     # Localization files
+```
 
+## Themes
 
+The app includes two beautiful themes inspired by the main characters:
 
-## Known issues
+### Taki Theme (Blue)
+- Primary color: Blue (#2196F3)
+- Gradient: Blue to Light Blue
+- Default username: "Taki"
 
-* Requesting permissions dialog fail on HTC D820t [API 23], HUAWEI honor 7i [API 22]
-* Writing diary with location will crash on some Chineses device.
+### Mitsuha Theme (Pink)
+- Primary color: Pink (#E91E63)
+- Gradient: Pink to Light Pink
+- Default username: "Mitsuha"
 
-## Use case
+## Contributing
 
-Because the DVD/BD aren't released yet, the use case is made from my memory and network information.
-If you have any idea or find some functionality that I miss, you can tell me or update the use case in **/UML/MyDiary.mdj**  by [starUML](http://staruml.io/):
-
-![](/screenshot/usercase.png) 
-
-
-## screenshot
-
-![](/screenshot/s_0.png) 
-![](/screenshot/s_1.png) 
-![](/screenshot/s_2.png) 
-![](/screenshot/s_3.png)
-![](/screenshot/s_4.png)
-![](/screenshot/s_5.png)
-![](/screenshot/s_6.png)
-
-
-# Apk
-[![](/screenshot/google-play-badge.png) ](https://play.google.com/store/apps/details?id=com.kiminonawa.mydiary)
-
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-For MIT license, I encourage more user or developer who like this movie can get some idea to do best project.
-If you want to create a new project based on this app, please create it by new feature, new idea or new design.
+This project is licensed under the MIT License.
 
-I denounce someone who only copies this project and release the same version onto Google play.
+## Acknowledgments
 
------------------------------------------------
+- Inspired by the beautiful movie "Your Name" (君の名は) by Makoto Shinkai
+- Original Android version served as the foundation for this Flutter port
+- Flutter team for the amazing cross-platform framework
 
-**The MIT License (MIT)**
-Copyright (c) 2016 Daxia
+---
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-## Contact me
-
-Daxia (guava.bala@gmail.com)
-
-P.S. I spend too much time anwering the same questions everyday (Ex.page effect, google account, password).
-I should focus the coding again.
-
-So if you send some duplicate question for me , forgive me I will ignore it at sometimes. 
-Most question you can find it in "Functionality".
-
+Made with ❤️ and Flutter
